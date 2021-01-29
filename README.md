@@ -2,6 +2,7 @@
 
 This API is used to validate a set of data using predefined rules.
 It has two end points - the base endpoint and the rule validation endpoint.
+The rule validation endpoint helps to validate passed data against a defined rule
 
 ```
 Nodejs

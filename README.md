@@ -52,5 +52,3 @@ where PORT
 ## AUTHOR
 
 Ayodeji
-
-## Author - Deji Odetayo

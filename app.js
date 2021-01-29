@@ -48,7 +48,6 @@ app.post("/validate-rule", async (req, res) => {
     //     data: null,
     //   });
     // }
-
     //Check if rule field is passed
     if (!req.body.rule) {
       return res.json({

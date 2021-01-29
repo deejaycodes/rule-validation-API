@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
 
 const app = express();
-const router = express.Router();
+//const router = express.Router();
 
 app.use(bodyParser.json());
 app.use(

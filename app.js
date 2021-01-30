@@ -39,7 +39,7 @@ app.post("/validate-rule", async (req, res) => {
       });
     }
 
-    //Check If the field specified in the rule object is missing from the data passed
+    //Check If the field specified in the rule object is missing from the data passed.
     let count = 0;
     for (let element in data) {
       if (rule.field === element) {

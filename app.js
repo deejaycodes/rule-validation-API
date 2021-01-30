@@ -27,24 +27,30 @@ app.get("/", (req, res) => {
   });
 });
 
-function isJSON(json) {
-  try {
-    var obj = JSON.parse(json);
-    if (obj && typeof obj === "object" && obj !== null) {
-      return true;
-    }
-  } catch (err) {}
-  return false;
-}
-
 app.post("/validate-rule", async (req, res) => {
   let { rule, data } = req.body;
   try {
-    //valid json
     //Check if rule field is passed
     if (!req.body.rule) {
       return res.status(400).json({
         message: "rule is required.",
+        status: "error",
+        data: null,
+      });
+    }
+
+    //Check If the field specified in the rule object is missing from the data passed
+    let count = 0;
+    for (let element in data) {
+      if (rule.field === element) {
+        count++;
+      }
+    }
+    if (count > 0) {
+      console.log("correct");
+    } else {
+      return res.status(400).json({
+        message: `field ${rule.field} is missing from data.`,
         status: "error",
         data: null,
       });
@@ -70,7 +76,7 @@ app.post("/validate-rule", async (req, res) => {
       });
     }
 
-    // //Check if passed data field is of the correct type
+    //Check if passed data field is of the correct type
     const dataField = req.body.data;
     const isObjectt = dataField instanceof Object;
     if (!isObjectt) {
@@ -213,7 +219,11 @@ app.post("/validate-rule", async (req, res) => {
       });
     }
   } catch (error) {
-    console.log("error");
+    res.status(400).json({
+      message: "Invalid JSON payload passed.",
+      status: "error",
+      data: null,
+    });
   }
 });
 

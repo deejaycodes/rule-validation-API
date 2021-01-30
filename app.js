@@ -40,6 +40,7 @@ function isJSON(json) {
 app.post("/validate-rule", async (req, res) => {
   let { rule, data } = req.body;
   try {
+    //valid json
     //Check if rule field is passed
     if (!req.body.rule) {
       return res.status(400).json({

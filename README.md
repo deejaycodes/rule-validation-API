@@ -47,8 +47,6 @@ npm run test
 npm run dev
 ```
 
-For documentation on endpoints, please kindly check ----
-
 #-------------------------------Environment variables--------------------------------------------------
 
 Just as provided in sample.env
